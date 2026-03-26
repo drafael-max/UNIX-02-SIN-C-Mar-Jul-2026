@@ -46,3 +46,13 @@ gpg --verify "doc_no_cifrado.txt martin.asc"
 #2 Verifying binary signature (.gpg)
 gpg --verify "doc_no_cifrado.txt martin.gpg"
 
+#Bloque E
+#Assigning trust level 4 (Full Trust) to José Martín's key
+#Reflection: I assigned full trust (level 4) because I verified my 
+#partner's identity personally during class and we exchanged 
+#public keys directly. This removes the trust warnings during verification.
+gpg --edit-key "martinfuel123@gamil.com"
+
+#Signing the partner's key to certify identity
+gpg --sign-key "martinfuel123@gamil.com"
+
