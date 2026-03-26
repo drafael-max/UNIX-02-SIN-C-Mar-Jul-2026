@@ -22,3 +22,12 @@ echo "hola martin jaja" > doc_no_cifrado.txt
 
 #See the message 
 cat doc_no_cifrado.txt
+
+#Encrypt the file using my partner's public key.
+gpg --encrypt 
+
+#decrypt the file
+gpg --decrypt 
+
+#Add cleartext signature command
+--clearsign
