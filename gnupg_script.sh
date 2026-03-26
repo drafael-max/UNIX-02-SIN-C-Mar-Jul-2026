@@ -59,3 +59,8 @@ gpg --sign-key "martinfuel123@gamil.com"
 #Bloque F
 #Command to encrypt and sign a file for the partner
 gpg --encrypt --sign --recipient "martinfuel123@gamil.com" doc_no_cifrado.txt
+
+#Encrypt and sign a file (using my own recipient for testing)
+gpg --encrypt --sign --recipient "drafaelpatin@gmail.com" doc_no_cifrado.txt
+#Decrypt and verify the file
+gpg --decrypt doc_no_cifrado.txt.gpg
