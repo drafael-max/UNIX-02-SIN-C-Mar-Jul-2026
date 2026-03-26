@@ -64,3 +64,6 @@ gpg --encrypt --sign --recipient "martinfuel123@gamil.com" doc_no_cifrado.txt
 gpg --encrypt --sign --recipient "drafaelpatin@gmail.com" doc_no_cifrado.txt
 #Decrypt and verify the file
 gpg --decrypt doc_no_cifrado.txt.gpg
+
+#Check the final content of the decrypted file
+cat doc_no_cifrado.txt
