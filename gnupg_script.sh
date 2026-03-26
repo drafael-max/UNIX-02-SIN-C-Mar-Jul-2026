@@ -1,22 +1,22 @@
+#Bloque A
+#Verify that GnuPG is installed
+which gpg / gpg --version 
+#Generate the key pair
+gpg --full-generate-key
 #This command lists the private key
 gpg --list-secret-keys --keyid-format=long
 
-#Command to back up my private key
-gpg --armor --export-secret-keys
-678FEA3F7A530BBB
-
+#Bloque B
+#Export my key
+gpg --armor --export drafaelpatin@gmail.com > key_friend
+#Import my friend 
+key gpg --import llave_amigo
+#List the keys
+gpg --list-keys
 #Hash
 678FEA3F7A530BBB
 
-#Export my key
-gpg --armor --export drafaelpatin@gmail.com > key_friend
-
-#Import my friend 
-key gpg --import llave_amigo
-
-#List the keys
-gpg --list-keys
-
+#Bloque C
 #Send a message
 echo "hola martin jaja" > doc_no_cifrado.txt
 
@@ -38,3 +38,11 @@ gpg --sign doc_no_cifrado.txt
 
 # Create a separate signature
 gpg --detach-sign doc_no_cifrado.txt
+
+#Verification of all signature types from partner
+#1 Verifying cleartext signature (.asc)
+gpg --verify "doc_no_cifrado.txt martin.asc"
+
+#2 Verifying binary signature (.gpg)
+gpg --verify "doc_no_cifrado.txt martin.gpg"
+
