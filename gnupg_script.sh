@@ -35,3 +35,6 @@ gpg --clearsign doc_no_cifrado.txt
 
 # Create a signature in binary format
 gpg --sign doc_no_cifrado.txt
+
+# Create a separate signature
+gpg --detach-sign doc_no_cifrado.txt
