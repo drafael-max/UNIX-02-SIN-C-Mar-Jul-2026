@@ -56,3 +56,6 @@ gpg --edit-key "martinfuel123@gamil.com"
 #Signing the partner's key to certify identity
 gpg --sign-key "martinfuel123@gamil.com"
 
+#Bloque F
+#Command to encrypt and sign a file for the partner
+gpg --encrypt --sign --recipient "martinfuel123@gamil.com" doc_no_cifrado.txt
