@@ -29,5 +29,9 @@ gpg --encrypt
 #decrypt the file
 gpg --decrypt 
 
-#Add cleartext signature command
---clearsign
+#Bloque D
+# Create a cleartext signature
+gpg --clearsign doc_no_cifrado.txt
+
+# Create a signature in binary format
+gpg --sign doc_no_cifrado.txt
