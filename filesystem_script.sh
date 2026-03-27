@@ -24,3 +24,7 @@ cd /
 ls -F
 #Show inode numbers of files
 ls -i
+#Create file and write "Hola mundo" 
+echo "Hola mundo" > test.txt
+#We check
+ls
