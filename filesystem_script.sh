@@ -8,3 +8,19 @@ cd /proc
 ls 
 #Show cpu information 
 cat cpuinfo
+# Move file to /bin 
+sudo mv saludo.c /bin/
+#Go to /bin directory
+cd /bin
+#List files
+ls
+#Search for "saludo"
+ls | grep "saludo"
+#Show current directory
+pwd
+#Go to root directory
+cd /
+#List files with type indicators
+ls -F
+#Show inode numbers of files
+ls -i
