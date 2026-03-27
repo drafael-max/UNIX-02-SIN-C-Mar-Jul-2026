@@ -28,3 +28,7 @@ ls -i
 echo "Hola mundo" > test.txt
 #We check
 ls
+#Show file contents
+cat text.txt
+#It shows the current state of the file.
+stat text.txt
