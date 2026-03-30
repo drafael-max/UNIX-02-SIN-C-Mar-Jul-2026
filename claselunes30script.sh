@@ -18,3 +18,8 @@ sudo parted -l
 
 #It displays the disks, partitions, and their file systems
 lsblk -f 
+
+#Check the system boot type:
+#If the /sys/firmware/efi directory exists: displays "UEFI"
+#If it does not exist: displays "BIOS"
+[ -d /sys/firmware/efi] && echo "UEFI" || echo "BIOS"
