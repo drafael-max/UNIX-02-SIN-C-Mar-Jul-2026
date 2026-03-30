@@ -9,3 +9,6 @@ sudo apt install parted
 
 #Install the NumPy library in Python
 pip install numpy
+
+#Displays disk and partition information:
+sudo parted -l && echo -e "\ n---\n" && lsblk -f && echo -e "\n---\n"
