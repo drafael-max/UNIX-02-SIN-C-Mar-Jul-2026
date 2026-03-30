@@ -24,5 +24,8 @@ lsblk -f
 #If it does not exist: displays "BIOS"
 [ -d /sys/firmware/efi] && echo "UEFI" || echo "BIOS"
 
+#Create or overwrite the file with that text.
 echo "mi archivo" > test.txt
+
+#It displays detailed file information (size, permissions, dates, etc.)
 stat test.txt
