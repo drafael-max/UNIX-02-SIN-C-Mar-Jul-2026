@@ -23,3 +23,6 @@ lsblk -f
 #If the /sys/firmware/efi directory exists: displays "UEFI"
 #If it does not exist: displays "BIOS"
 [ -d /sys/firmware/efi] && echo "UEFI" || echo "BIOS"
+
+echo "mi archivo" > test.txt
+stat test.txt
