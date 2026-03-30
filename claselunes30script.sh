@@ -12,3 +12,9 @@ pip install numpy
 
 #Displays disk and partition information:
 sudo parted -l && echo -e "\ n---\n" && lsblk -f && echo -e "\n---\n"
+
+#It's the partition table
+sudo parted -l
+
+#It displays the disks, partitions, and their file systems
+lsblk -f 
