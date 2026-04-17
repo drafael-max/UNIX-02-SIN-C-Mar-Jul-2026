@@ -79,3 +79,13 @@ ls -l -ah
 ls -l -a -h
 ls -l -ah
 ls -lah
+
+#Invalid: mkdir does not use -r.
+#-f ignores errors, but -r is incorrect for mkdir.
+mkdir -rf
+
+#Create a directory literally named -rf.
+mkdir -- -rf
+
+#Lists the files and folders in the current directory.
+ls 
