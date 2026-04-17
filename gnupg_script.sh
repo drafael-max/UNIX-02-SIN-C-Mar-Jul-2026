@@ -71,3 +71,11 @@ cat doc_no_cifrado.txt
 #Show all files, including hidden ones.
 ls -a 
 ls --all 
+
+#Displays files with details, including hidden files, in a readable format (sizes).
+ls -l -ah 
+
+#They display files with details, including hidden ones, and readable sizes.
+ls -l -a -h
+ls -l -ah
+ls -lah
