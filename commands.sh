@@ -31,6 +31,9 @@ man ls
 #n go to next result
 #N go to back to previous result 
 
+#Displays the complete manual for the git clone command.
+man git-clone
+
 # Create a shallow clone with a history truncated to the specified number of commits. Implies --single-branch unless --no-single-branch is given to
 #fetch the histories near the tips of all branches. If you want to clone submodules shallowly, also pass --shallow-submodules.
 --depth <depth>
