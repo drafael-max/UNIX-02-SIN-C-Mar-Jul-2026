@@ -67,3 +67,7 @@ gpg --decrypt doc_no_cifrado.txt.gpg
 
 #Check the final content of the decrypted file
 cat doc_no_cifrado.txt
+
+#Show all files, including hidden ones.
+ls -a 
+ls --all 
