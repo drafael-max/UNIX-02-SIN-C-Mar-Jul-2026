@@ -47,3 +47,17 @@ ls -l
 #r-- = permissions for "others" = read only
 
 -rw-rw-rw-  1 codespace root      34523 Apr 17 14:16  LICENSE  
+
+#We create a file.
+touch script .sh 
+touch secreto.txt
+touch privado
+
+#Everyone can run it (equivalent to a-x).
+chmod +x script .sh
+
+#Only the owner can execute it.
+chmod o-r secreto.txt
+
+#The owner reads/writes, nobody else can do anything.
+chmod u+rw,go-rwx privado
