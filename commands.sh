@@ -119,3 +119,15 @@ ls -l hello.sh
 #4. ./hola.sh
 #Run the script. * The ./ tells the terminal: "look for the file in the current directory".
 ./hola.sh
+
+#ls /etc is not needed. /etc is public.
+ls /etc
+
+#touch /etc/prueba.txt is needed. /etc belongs to root and doesn't allow normal users to write to it.
+touch /etc/prueba.txt
+
+#mkdir ~/my_folder is not needed. ~ is your home directory.
+mkdir ~/mi_carpeta
+
+#apt install cowsay is needed. Installing packages involves accessing system directories (/usr/bin).
+apt install cowsay
