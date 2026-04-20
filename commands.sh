@@ -83,3 +83,10 @@ sudo sh -c 'echo "chao" >> /etc/archivo_protegido'
 
 #It is mainly used to read and display the contents of files in the terminal.
 cat
+
+#The sudo -i command opens a terminal session as superuser (root).
+sudo -i
+
+#To exit, simply type exit
+exit
+
