@@ -131,3 +131,25 @@ mkdir ~/mi_carpeta
 
 #apt install cowsay is needed. Installing packages involves accessing system directories (/usr/bin).
 apt install cowsay
+
+#Create an empty file called test.txt. If the file already exists, simply update its modification date.
+touch prueba.txt
+
+#It establishes very restrictive permissions:
+#6 (Owner): Reading and writing (4+2).
+#0 (Group): No permission.
+#0 (Other): No permit.
+chmod 600 prueba.txt
+
+#You will see the permissions represented as: -rw-------.
+#The absence of letters in the other positions confirms that the group and others do not have access.
+ls -l prueba.txt
+
+#Change permissions to a common scheme for public programs or folders:
+#7 (Owner): Read, write and execute (4+2+1). Total control.
+#5 (Group): Read and execute (4+1). They can view and use it, but not delete content.
+#5 (Other): Reading and execution (4+1). Same as the group.
+chmod 755 prueba.txt
+
+#Now you will see: -rwxr-xr-x. The file becomes "public" for reading and is marked as executable.
+ls -l prueba.txt
