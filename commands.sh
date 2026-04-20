@@ -61,3 +61,18 @@ chmod o-r secreto.txt
 
 #The owner reads/writes, nobody else can do anything.
 chmod u+rw,go-rwx privado
+
+#The command fails because the redirection (>) is executed by the normal user and not by sudo.
+#sudo is only executed by the user whose name is next to it.
+sudo echo "hola" > /etc/archivo_protegido
+
+#echo "hola"` runs as a normal user.
+#The pipe (`|`) passes the output to tee
+#sudo tee: Receives the text and writes it to
+#/etc/file_protected using administrator privileges.
+#/dev/null: Silences the output of `tee` (which normally repeats what it writes to the screen) by sending it to the system's "black hole".
+echo "hola" | sudo tee /etc/archivo_protegido > /dev/null
+
+#Type "hello" both in the protected file and on the screen.
+echo "hola" | sudo tee /etc/archivo_protegido
+
