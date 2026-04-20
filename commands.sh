@@ -76,3 +76,10 @@ echo "hola" | sudo tee /etc/archivo_protegido > /dev/null
 #Type "hello" both in the protected file and on the screen.
 echo "hola" | sudo tee /etc/archivo_protegido
 
+#sudo: executes something as root
+#sh: opens a shell
+#-c: tells the shell that everything inside single quotes should be interpreted by the root shell
+sudo sh -c 'echo "chao" >> /etc/archivo_protegido'
+
+#It is mainly used to read and display the contents of files in the terminal.
+cat
