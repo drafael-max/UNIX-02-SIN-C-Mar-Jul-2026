@@ -95,3 +95,27 @@ echo "$HOME"
 
 #Displays the literal text $HOME instead of the home path.
 echo '$HOME'
+
+#Create a file called hola.sh and write the shebang on its first line.
+echo '#!/bin/sh' > hola.sh
+
+#Add a line of code to the hola.sh file without deleting what's already there.
+echo 'echo "Hola desde mi primer script"' >> hola.sh
+
+#This set of commands is used to verify, grant permissions, and run the script you just created.
+#1. ls -l hello.sh (First time)
+#It shows the file details; it can be read and written but not edited.
+ls -l hello.sh
+
+#2. chmod: Changes the file's permissions.
+#+x: Adds the execute permission.
+chmod +x hola.sh
+
+#3. ls -l hello.sh (The second time)
+#The permissions will now look like -rwxr-xr-x (the x appears).
+#In many terminals, the file name will change color (usually to green) indicating that it is executable.
+ls -l hello.sh
+
+#4. ./hola.sh
+#Run the script. * The ./ tells the terminal: "look for the file in the current directory".
+./hola.sh
