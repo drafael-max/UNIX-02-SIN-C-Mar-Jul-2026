@@ -90,3 +90,8 @@ sudo -i
 #To exit, simply type exit
 exit
 
+#Displays the absolute path to the current user's home folder.
+echo "$HOME"
+
+#Displays the literal text $HOME instead of the home path.
+echo '$HOME'
