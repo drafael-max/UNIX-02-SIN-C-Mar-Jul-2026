@@ -18,7 +18,7 @@ mv notas apuntes
 # Create the missing 'respaldos' directory as required by the evaluation.
 mkdir respaldos
 
-# EXERCISE 2 Relocate and rename files
+#EXERCISE 2 Relocate and rename files
 #Change to the orion directory
 cd orion
 
@@ -30,3 +30,13 @@ mv config.tmp config.conf
 
 # Level up to be in the evaluation folder
 cd ..
+
+#EXERCISE 3 Numerical permissions with chmod
+#Change to the directory evaluation/orion/notes/.
+cd evaluation/orion/apuntes/
+
+# Set permissions to 640 for 'telemetria.log' (owner: rw, group: r, others: none).
+chmod 640 telemetria.log
+
+#We verified with the ls -l telemetria-log command
+ls -l telemetria.log
