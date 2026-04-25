@@ -12,10 +12,10 @@ cd evaluation
 cd orion
 
 #!/bin/bash
-# Rename the 'notas' directory to 'apuntes' to fix the incorrect naming.
+#Rename the 'notas' directory to 'apuntes' to fix the incorrect naming.
 mv notas apuntes
 
-# Create the missing 'respaldos' directory as required by the evaluation.
+#Create the missing 'respaldos' directory as required by the evaluation.
 mkdir respaldos
 
 #EXERCISE 2 Relocate and rename files
@@ -28,15 +28,22 @@ mv telemetria.log apuntes/
 #Rename 'config.tmp' to 'config.conf' to fix the file extension.
 mv config.tmp config.conf
 
-# Level up to be in the evaluation folder
+#Level up to be in the evaluation folder
 cd ..
 
 #EXERCISE 3 Numerical permissions with chmod
 #Change to the directory evaluation/orion/notes/.
 cd evaluation/orion/apuntes/
 
-# Set permissions to 640 for 'telemetria.log' (owner: rw, group: r, others: none).
+#Set permissions to 640 for 'telemetria.log' (owner: rw, group: r, others: none).
 chmod 640 telemetria.log
 
 #We verified with the ls -l telemetria-log command
 ls -l telemetria.log
+
+#EXERCISE 4 Symbolic permissions
+#Owner: remove execute; Group: add read/write; Others: remove all.
+chmod u-x,g+rw,o-rwx config.conf
+
+#We verify with the command ls -l config.conf to show us the detailed information of the file
+ls -l config.conf
