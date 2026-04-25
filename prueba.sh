@@ -47,3 +47,7 @@ chmod u-x,g+rw,o-rwx config.conf
 
 #We verify with the command ls -l config.conf to show us the detailed information of the file
 ls -l config.conf
+
+#EXERCISE 5 Search and count files
+#Find all files with .conf extension in the evaluation directory and count them.
+find evaluation -name "*.conf" | wc -l
