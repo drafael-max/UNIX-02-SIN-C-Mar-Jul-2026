@@ -76,3 +76,11 @@ gpg --encrypt --recipient lyra@orion.lab telemetria.log
 
 #Lists and classifies files in the current directory to verify the creation of the .gpg file.
 ls -F
+
+#EXERCISE 8 GPG Digital Signatures
+#8a. Created a clearsign signature for config.conf
+gpg --clearsign config.conf
+
+#8b. Fixed the corrupted detached signature for script.sh
+#Overwriting the old .sig file with a valid signature from lyra@orion.lab
+gpg --yes --detach-sign script.sh
