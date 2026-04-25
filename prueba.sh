@@ -69,3 +69,10 @@ chmod +t /tmp/orion_zone
 
 #Verify that a 't' appears at the end of the permissions
 ls -ld /tmp/orion_zone
+
+#EXERCISE 7 GPG Key Generation and Asymmetric Encryption
+#Uses the public key of lyra@orion.lab to asymmetrically encrypt the log file.
+gpg --encrypt --recipient lyra@orion.lab telemetria.log
+
+#Lists and classifies files in the current directory to verify the creation of the .gpg file.
+ls -F
