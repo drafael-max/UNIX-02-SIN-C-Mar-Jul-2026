@@ -41,13 +41,17 @@ chmod 640 telemetria.log
 #We verified with the ls -l telemetria-log command
 ls -l telemetria.log
 
-#EXERCISE 4 Symbolic permissions
-#Owner: remove execute; Group: add read/write; Others: remove all.
-chmod u-x,g+rw,o-rwx config.conf
+#EXERCISE 4 Symbolic Permissions
+#Grant execute permission to the owner (u+x) for script.sh
+chmod u+x script.sh
+
+#Remove write permission from group (g-w) and others (o-w) for config.conf
+chmod g-w,o-w config.conf
 
 #We verify with the command ls -l config.conf to show us the detailed information of the file
 ls -l config.conf
 
-#EXERCISE 5 Search and count files
-#Find all files with .conf extension in the evaluation directory and count them.
-find evaluation -name "*.conf" | wc -l
+#EXERCISE 5: Bit SUID (Set User ID)
+#The SUID bit allows the file to be executed with the permissions of the file owner.
+#We apply it using 'u+s' to script.sh.
+chmod u+s script.sh
