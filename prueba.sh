@@ -18,3 +18,15 @@ mv notas apuntes
 # Create the missing 'respaldos' directory as required by the evaluation.
 mkdir respaldos
 
+# EXERCISE 2 Relocate and rename files
+#Change to the orion directory
+cd orion
+
+#Move 'telemetria.log' to the 'apuntes' directory.
+mv telemetria.log apuntes/
+
+#Rename 'config.tmp' to 'config.conf' to fix the file extension.
+mv config.tmp config.conf
+
+# Level up to be in the evaluation folder
+cd ..
