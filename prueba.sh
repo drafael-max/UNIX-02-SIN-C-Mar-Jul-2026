@@ -55,3 +55,17 @@ ls -l config.conf
 #The SUID bit allows the file to be executed with the permissions of the file owner.
 #We apply it using 'u+s' to script.sh.
 chmod u+s script.sh
+
+#EXERCISE 6: Sticky Bit activation
+#Applying the sticky bit to /tmp/orion_zone ensures that only the file owner 
+#can delete their own files within this shared directory.
+chmod +t /tmp/orion_zone
+
+#Create the directory (the verifier will look there)
+mkdir -p /tmp/orion_zone
+
+#Activate the Sticky Bit using '+t'
+chmod +t /tmp/orion_zone
+
+#Verify that a 't' appears at the end of the permissions
+ls -ld /tmp/orion_zone
