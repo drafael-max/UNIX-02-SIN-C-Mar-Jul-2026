@@ -176,3 +176,6 @@ sudo setfacl -bnR .
 
 #Sets the default permission mask to 027 (removes write permissions from the group and all others).
 umask 027
+
+#Set the permission mask to 077 (only the owner has permissions, the group and others have none).
+umask 077
