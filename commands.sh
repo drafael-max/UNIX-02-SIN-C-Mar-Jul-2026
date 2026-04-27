@@ -179,3 +179,21 @@ umask 027
 
 #Set the permission mask to 077 (only the owner has permissions, the group and others have none).
 umask 077
+
+#Create the user luna with home directory and shell /usr/bin/zsh.
+useradd -m -s /usr/bin/zsh luna
+
+#Create the user luna with home directory and shell /usr/bin/zsh, using administrator permissions.
+sudo useradd -m -s /usr/bin/zsh luna
+
+#Lists the user directories within /home.
+ls /home
+
+#Displays detailed information about the file my_file.
+ls -l mi_archivo
+
+#Change the owner of my_file to the user luna
+sudo chown luna mi_archivo
+
+#Displays detailed information about my_file (includes permissions, owner, size, and dates).
+ls -l mi_archivo
