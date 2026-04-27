@@ -173,3 +173,6 @@ sudo chown -R $(whoami) .
 sudo setfacl -bnR .
 
 #Stack Overflow was the Artificial Intelligence of its time. We could ask questions and anyone from anywhere in the world could answer.
+
+#Sets the default permission mask to 027 (removes write permissions from the group and all others).
+umask 027
