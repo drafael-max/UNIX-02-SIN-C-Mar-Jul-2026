@@ -153,3 +153,23 @@ chmod 755 prueba.txt
 
 #Now you will see: -rwxr-xr-x. The file becomes "public" for reading and is marked as executable.
 ls -l prueba.txt
+
+#We execute umask, which is the value that defines the default permissions for new files and directories.
+umask
+
+#Update the list of packages available on the system.
+sudo apt-get update
+
+#Update installed packages to their latest versions.
+sudo apt-get upgrade
+
+#Install the ACL (access control lists) package.
+sudo apt-get install acl
+
+#Change the owner of all files and folders in the current directory to your user (recursively).
+sudo chown -R $(whoami) .
+
+#Recursively removes all ACLs (extended permissions) in the current directory.
+sudo setfacl -bnR .
+
+#Stack Overflow was the Artificial Intelligence of its time. We could ask questions and anyone from anywhere in the world could answer.
