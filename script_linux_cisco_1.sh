@@ -115,3 +115,19 @@ ls -l hello.sh
 
 #Execute the script from the current directory
 ./hello.sh
+
+#Section 9
+#Navigate to the directory
+cd ~/Documents
+
+#Check the current owner 
+ls -l hello.sh
+
+#Change the owner to 'root' using sudo
+sudo chown root hello.sh
+
+#Confirm the owner is now 'root'
+ls -l hello.sh
+
+#Run the script as root since ownership changed
+sudo ./hello.sh
