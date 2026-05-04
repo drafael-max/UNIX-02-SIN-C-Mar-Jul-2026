@@ -34,5 +34,25 @@ pwd
 #It represents the root of the system.
 /
 
-#It is a shortcut that represents the "Home" or personal folder
+#It is a shortcut that represents the "Home" or personal folder.
 ~
+
+#Section 4
+# "cd" stands for change directory. It is used to navigate the system.
+cd Documents
+
+# Using absolute paths (starting from root '/')
+cd /home/sysadmin
+
+# Using relative paths (starting from current location)
+cd School/Art
+
+# Shortcuts for navigation:
+# Go up one level (parent directory)
+cd ..
+
+# Return to the user's home directory
+cd ~
+
+# Confirm movement with 'pwd'
+pwd
