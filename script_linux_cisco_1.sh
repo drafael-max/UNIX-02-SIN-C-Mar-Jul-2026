@@ -131,3 +131,21 @@ ls -l hello.sh
 
 #Run the script as root since ownership changed
 sudo ./hello.sh
+
+#Section 10
+cd ~/Documents
+
+#View entire content of a small file
+cat animals.txt
+
+#View the first 10 lines of alpha.txt
+head alpha.txt
+
+#View the last 10 lines of alpha.txt
+tail alpha.txt
+
+#Custom view: first 5 lines
+head -n 5 alpha.txt
+
+#Custom view: last 5 lines
+tail -n 5 alpha.txt
