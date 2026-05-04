@@ -86,3 +86,16 @@ exit
 
 #"sudo" allows executing a single command with administrative privileges.
 sudo sl
+
+#Section 7
+#Move to the Documents directory
+cd ~/Documents
+
+#View detailed permissions for a specific file
+ls -l hello.sh
+
+#Note: Permissions are read as (User)(Group)(Others)
+#Example: -rw-r--r-- 
+#rw- (Owner can read/write)
+#r-- (Group can only read)
+#r-- (Others can only read)
