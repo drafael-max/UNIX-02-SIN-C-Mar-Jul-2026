@@ -149,3 +149,26 @@ head -n 5 alpha.txt
 
 #Custom view: last 5 lines
 tail -n 5 alpha.txt
+
+#Section 11
+#Go back to home directory
+cd ~
+
+#Create a 50MB swap file with zeros
+# if: input file, of: output file, bs: block size, count: number of blocks
+dd if=/dev/zero of=/tmp/swapex bs=1M count=50
+
+#Example of cloning a drive (DO NOT run without specific hardware)
+# dd if=/dev/sda of=/dev/sdb
+
+#Section 12
+cd ~/Documents
+
+#Move a single file
+mv people.csv Work
+
+#Move multiple files to a directory
+mv numbers.txt letters.txt alpha.txt School
+
+#Rename a file in the same directory
+mv animals.txt zoo.txt
