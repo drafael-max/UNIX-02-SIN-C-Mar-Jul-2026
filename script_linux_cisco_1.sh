@@ -1,5 +1,6 @@
 #Linux course
 
+#Section 2
 #The command executed is ls.
 #Lists the files and folders in the current directory.
 #Note: Linux is case-sensitive, use lowercase 'ls'.
@@ -25,3 +26,13 @@ ls -lr
 aptitude -v moo
 aptitude -vv moo
 aptitude -vvv moo
+
+#Section 3
+#Displays the path to the current directory.
+pwd
+
+#It represents the root of the system.
+/
+
+#It is a shortcut that represents the "Home" or personal folder
+~
