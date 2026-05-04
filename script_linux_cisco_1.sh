@@ -99,3 +99,19 @@ ls -l hello.sh
 #rw- (Owner can read/write)
 #r-- (Group can only read)
 #r-- (Others can only read)
+
+#Section 8
+#Navigate to the target directory
+cd ~/Documents
+
+#Check current permissions (initially -rw-r--r--)
+ls -l hello.sh
+
+#Adding execution permission to the owner (u)
+chmod u+x hello.sh
+
+#Verify the change (now should show -rwxr--r--)
+ls -l hello.sh
+
+#Execute the script from the current directory
+./hello.sh
