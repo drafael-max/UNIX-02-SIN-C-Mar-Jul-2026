@@ -38,21 +38,38 @@ pwd
 ~
 
 #Section 4
-# "cd" stands for change directory. It is used to navigate the system.
+#"cd" stands for change directory. It is used to navigate the system.
 cd Documents
 
-# Using absolute paths (starting from root '/')
+#Using absolute paths (starting from root '/')
 cd /home/sysadmin
 
-# Using relative paths (starting from current location)
+#Using relative paths (starting from current location)
 cd School/Art
 
-# Shortcuts for navigation:
+#Shortcuts for navigation:
 # Go up one level (parent directory)
 cd ..
 
-# Return to the user's home directory
+#Return to the user's home directory
 cd ~
 
-# Confirm movement with 'pwd'
+#Confirm movement with pwd
 pwd
+
+#Section 5
+#"ls" is used to list directory contents.
+ls
+
+#Long listing to see permissions, owners, and sizes
+ls -l /var/log
+
+#Sorting options:
+#Sort by time (newest first)
+ls -lt
+
+#Sort by size (largest first)
+ls -lS
+
+#Reverse the order
+ls -lSr
