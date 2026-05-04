@@ -73,3 +73,16 @@ ls -lS
 
 #Reverse the order
 ls -lSr
+
+#Section 6
+#"su" allows you to switch to another user (usually root).
+su
+
+#Using "su -" ensures a clean login with the user's environment.
+su -
+
+#"exit" is used to leave the current shell and return to the previous user.
+exit
+
+#"sudo" allows executing a single command with administrative privileges.
+sudo sl
