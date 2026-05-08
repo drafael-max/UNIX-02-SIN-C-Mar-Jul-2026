@@ -61,3 +61,12 @@ addgroup --system cache_Web
 
 #Search and display in /etc/group the design, marketing or cache_Web groups if they exist.
 grep "diseño\|marketing\|cache_Web" /etc/group
+
+#Add the root user to the developers group without removing it from its other groups.
+usermod -aG desarrolladores root
+
+#Add the root user to the design group without removing it from other groups.
+usermod -aG diseno root
+
+#Displays information about the root user (UID, GID, and groups to which they belong).
+id root 
