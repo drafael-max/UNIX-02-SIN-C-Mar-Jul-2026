@@ -22,3 +22,9 @@ groups $USER
 id -u #User ID
 id -g #Group ID principal
 id -G #all groups IDs
+
+#Create the proyecto_unix folder in your home directory.
+ls -la ~/proyecto_unix/
+
+#It displays its contents with detailed information (including hidden files)
+ls -la ~/proyecto_unix/
