@@ -17,3 +17,8 @@ ls -la
 #View all system groups and to which groups does the current user belong
 cat /etc/group | head -10
 groups $USER
+
+#View the current user's UID and GID
+id -u #User ID
+id -g #Group ID principal
+id -G #all groups IDs
