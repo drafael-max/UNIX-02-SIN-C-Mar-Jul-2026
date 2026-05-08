@@ -35,6 +35,9 @@ groupadd desarrolladores
 #Create a group called operations with GID 2000
 sudo groupadd -g 2000 operaciones
 
+#Create a system group called web_services.
+groupadd --system servicios_web
+
 #Search and display in /etc/group the groups: developers, operations or web_services if they exist.
 grep "desarrolladores\|operaciones\|servicios_web" /etc/group
 
@@ -46,4 +49,3 @@ grep -E "desarrolladores|operaciones|servicios_web" /etc/group
 
 #Search and display in /etc/login.defs the configuration values ​​of the GID ranges (system group and user IDs).
 grep "GID_MIN\GID_MAX\|SYS_GID" /etc/login.defs
-
