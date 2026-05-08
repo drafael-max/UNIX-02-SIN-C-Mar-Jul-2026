@@ -41,3 +41,6 @@ grep "desarrolladores\|operaciones\|servicios_web" /etc/group
 #Search and display in /etc/group the lines that contain developers, operations or web_services using extended regular expressions.
 grep -E "desarrolladores|operaciones|servicios_web" /etc/group
 
+#Search and display in /etc/login.defs the configuration values ​​of the GID ranges (system group and user IDs).
+grep "GID_MIN\GID_MAX\|SYS_GID" /etc/login.defs
+
