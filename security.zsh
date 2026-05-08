@@ -13,3 +13,7 @@ cat /etc/passwd | head -10
 #They inherit the UID and the GEID
 touch test.txt
 ls -la
+
+#View all system groups and to which groups does the current user belong
+cat /etc/group | head -10
+groups $USER
