@@ -49,3 +49,15 @@ grep -E "desarrolladores|operaciones|servicios_web" /etc/group
 
 #Search and display in /etc/login.defs the configuration values ​​of the GID ranges (system group and user IDs).
 grep "GID_MIN\GID_MAX\|SYS_GID" /etc/login.defs
+
+#Create a group called design.
+addgroup diseno
+
+#Create a group called marketing with the GID 2100.
+addgroup --gid 2100 marketing
+
+#Create a system group called cache_Web.
+addgroup --system cache_Web
+
+#Search and display in /etc/group the design, marketing or cache_Web groups if they exist.
+grep "diseño\|marketing\|cache_Web" /etc/group
