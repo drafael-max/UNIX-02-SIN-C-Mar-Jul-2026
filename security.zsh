@@ -28,3 +28,16 @@ ls -la ~/proyecto_unix/
 
 #It displays its contents with detailed information (including hidden files)
 ls -la ~/proyecto_unix/
+
+#Create a group called developers
+groupadd desarrolladores
+
+#Create a group called operations with GID 2000
+sudo groupadd -g 2000 operaciones
+
+#Search and display in /etc/group the groups: developers, operations or web_services if they exist.
+grep "desarrolladores\|operaciones\|servicios_web" /etc/group
+
+#Search and display in /etc/group the lines that contain developers, operations or web_services using extended regular expressions.
+grep -E "desarrolladores|operaciones|servicios_web" /etc/group
+
