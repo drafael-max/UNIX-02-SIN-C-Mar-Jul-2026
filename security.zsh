@@ -38,6 +38,9 @@ sudo groupadd -g 2000 operaciones
 #Search and display in /etc/group the groups: developers, operations or web_services if they exist.
 grep "desarrolladores\|operaciones\|servicios_web" /etc/group
 
+#Displays help for the groupadd command (options and usage).
+groupadd --help
+
 #Search and display in /etc/group the lines that contain developers, operations or web_services using extended regular expressions.
 grep -E "desarrolladores|operaciones|servicios_web" /etc/group
 
