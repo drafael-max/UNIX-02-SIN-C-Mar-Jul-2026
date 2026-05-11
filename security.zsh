@@ -73,3 +73,12 @@ id root
 
 #Search and display in /etc/group the developer and design groups if they exist.
 grep "desarrolladores\|diseno" /etc/group
+
+#Add user to group with adduser (high level, Debian)
+adduser $USER root marketing 
+
+#Displays information about the current user (UID, GID, and groups they belong to).
+id $USER
+
+#Search and display in /etc/group the lines that contain root.
+grep root /etc/group
