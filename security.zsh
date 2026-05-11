@@ -114,3 +114,9 @@ ls -la ~/lab_chgrp/proyectos/
 
 #displays all files in the reports folder with detailed information.
 ls -la ~/lab_chgrp/reportes/
+
+#changes the owner group of `app.py` to `developers`
+chgrp developers ~/lab_chgrp/projects/app.py 
+
+#displays detailed file information to verify the group change
+ls -l ~/lab_chgrp/projects/app.py 
