@@ -119,4 +119,15 @@ ls -la ~/lab_chgrp/reportes/
 chgrp developers ~/lab_chgrp/projects/app.py 
 
 #displays detailed file information to verify the group change
-ls -l ~/lab_chgrp/projects/app.py 
+ls -l ~/lab_chgrp/projects/app.py
+
+# Changes the group ownership of config.json and informe.txt to the "diseno" group
+chgrp diseno \
+~/lab_chgrp/proyectos/config.json \
+~/lab_chgrp/reportes/informe.txt
+
+#Displays detailed information about the files inside the proyectos directory
+ls -la ~/lab_chgrp/proyectos/
+
+#Displays detailed information about the files inside the reportes directory
+ls -la ~/lab_chgrp/reportes/Add command to change group ownership of multiple files
