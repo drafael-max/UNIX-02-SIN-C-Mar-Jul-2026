@@ -95,3 +95,9 @@ id $USER #displays information about the current user and their groups
 
 #Change the root group so that it belongs only to the developers group.
 usermod -G desarrolladores root
+
+#Restore
+usermod -aG diseno,marketing,grupo_temporal root
+
+#Restored
+id $USER
