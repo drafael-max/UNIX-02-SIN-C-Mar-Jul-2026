@@ -82,3 +82,13 @@ id $USER
 
 #Search and display in /etc/group the lines that contain root.
 grep root /etc/group
+
+#Create a temporary group for the demo
+
+groupadd grupo_temporal
+usermod -aG grupo_temporal $USER
+id $USER #has grupo_temporal
+
+groupadd temporary_group #creates a group called temporary_group
+usermod -aG temporary_group $USER #adds the current user to that group
+id $USER #displays information about the current user and their groups
