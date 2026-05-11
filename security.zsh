@@ -92,3 +92,6 @@ id $USER #has grupo_temporal
 groupadd temporary_group #creates a group called temporary_group
 usermod -aG temporary_group $USER #adds the current user to that group
 id $USER #displays information about the current user and their groups
+
+#Change the root group so that it belongs only to the developers group.
+usermod -G desarrolladores root
