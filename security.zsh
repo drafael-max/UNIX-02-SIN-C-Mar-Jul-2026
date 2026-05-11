@@ -69,4 +69,7 @@ usermod -aG desarrolladores root
 usermod -aG diseno root
 
 #Displays information about the root user (UID, GID, and groups to which they belong).
-id root 
+id root
+
+#Search and display in /etc/group the developer and design groups if they exist.
+grep "desarrolladores\|diseno" /etc/group
