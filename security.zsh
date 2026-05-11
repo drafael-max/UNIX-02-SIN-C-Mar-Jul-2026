@@ -101,3 +101,16 @@ usermod -aG diseno,marketing,grupo_temporal root
 
 #Restored
 id $USER
+
+usermod -aG diseno,marketing,grupo_temporary root #adds root to those groups
+mkdir -p ~/lab_chgrp/{proyectos,reportes,scripts} #creates the lab_chgrp folder and its subfolders
+touch ~/lab_chgrp/proyectos/app.py #creates the app.py file
+touch ~/lab_chgrp/proyectos/config.json #creates the config.json file
+touch ~/lab_chgrp/reportes/informe.txt #creates the informe.txt file
+touch ~/lab_chgrp/scripts/deploy.sh #creates the deploy.sh file
+
+#displays all files in the projects folder with detailed information.
+ls -la ~/lab_chgrp/proyectos/
+
+#displays all files in the reports folder with detailed information.
+ls -la ~/lab_chgrp/reportes/
