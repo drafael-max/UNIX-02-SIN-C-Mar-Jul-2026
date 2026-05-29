@@ -28,3 +28,12 @@ mkdir -p ~/proyecto_dev/src
 ls -la ~
 #mkdir -p ~/proyecto_dev/src creates the proyecto_dev folder and the src folder inside it.
 #ls -la ~ displays all files and folders in the home directory (~) with detailed information, including hidden files.
+
+#Once we exit the newgrp developers, we run echo "$$" and a number appears.
+echo "$$"
+1208
+
+#When we go back into newgrp developers and run the same command again, a different number appears.
+echo "$$"
+31211
+#A new session/shell was opened with another process, that's why the number changed
