@@ -17,4 +17,4 @@ df --human-readable
 #Each time the script reached that line, it started a new execution of the same file, repeating the process indefinitely until it was manually stopped.
 #bash blackhatbash1
 set -x
-set +x 
+set +x
