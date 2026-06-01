@@ -15,3 +15,6 @@ df --human-readable
 #bash script.sh
 #An infinite loop occurred because the script was running itself using the command `bash -x blackhatbash1.sh`. 
 #Each time the script reached that line, it started a new execution of the same file, repeating the process indefinitely until it was manually stopped.
+#bash blackhatbash1
+set -x
+set +x 
