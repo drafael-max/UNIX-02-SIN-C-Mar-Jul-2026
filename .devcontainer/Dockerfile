@@ -185,4 +185,9 @@ RUN chsh -s /usr/bin/zsh root
 RUN cat >> /root/.zshrc <<'EOF'
 PROMPT='%F{cyan}[Rafael-Patin]%f %F{yellow}%1~%f %(?.%F{green}✔️.%F{red}✘)%f %# '
 EOF
+
+# --- Block m: Default Runtime Execution Entrypoint ---
+# [BHB Ch. 3] CMD mandates the structural lifecycle behavior when a container boots up, 
+# unlike RUN commands which freeze modifications into immutable image layers. It serves as 
+# the active fallback command, opening an interactive Zsh terminal prompt upon deployment.
 CMD ["/usr/bin/zsh"]
