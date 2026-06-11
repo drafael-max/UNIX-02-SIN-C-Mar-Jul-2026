@@ -161,26 +161,27 @@ SHELL ["/bin/bash", "-c"]
 # shifts operational context to '/workspaces' automatically.
 WORKDIR /workspaces
 
-# Configuración de Git para el contenedor:
-# - safe.directory *: confía en cualquier repo montado (necesario porque
-#   /workspaces/... tiene un UID distinto al de root dentro del container).
-# - init.defaultBranch main: evita warnings de "master vs main" en git init.
-# - pull.rebase false: merge por defecto al hacer pull (más intuitivo)
-# - git lfs install --system: registra los hooks de LFS globalmente para
-#   que, si un repo los necesita, funcionen sin sorpresas.
+# --- Block j: System-Wide Version Control Infrastructure ---
+# [BHB Ch. 1] Configures systemic environment attributes across the filesystem via 'git config --system':
+# safe.directory '*' -> Bypasses structural ownership UID mismatches inside Docker storage bridges.
+# init.defaultBranch main -> Suppresses traditional default naming conflicts for tracking trees.
+# pull.rebase false -> Enforces straightforward merging procedures on pipeline fetch sequences.
+# git lfs install --system -> Implements architectural standard hooks for tracking large asset records.
 RUN git config --system --add safe.directory '*' \
  && git config --system init.defaultBranch main \
  && git config --system pull.rebase false \
  && git lfs install --system
 
-# ----------------------------------------------------------------------------
-# CMD: comando que se ejecuta por defecto al arrancar el contenedor
-# ----------------------------------------------------------------------------
-# Lanza una shell bash interactiva. Codespaces la sobrescribe con su
-# propia terminal integrada de VS Code, pero es buena práctica dejarla
-# definida para que la imagen sea usable también con Docker puro.
-# Prompt del curso para bash
+ # --- Block k: Default Execution Shell Upgrade ---
+# [BHB Ch. 1] Changes the root environment profile shell via 'chsh'. Replacing 
+# '/bin/bash' with '/usr/bin/zsh' transforms interactive utility capabilities for the primary operator.
 RUN chsh -s /usr/bin/zsh root
+
+# --- Block l: Heredoc Multi-Line Appending & Custom Prompt Injection ---
+# [BHB Ch. 1] Implementing a Here-Document construct ('cat >> filepath << 'EOF'') enables 
+# multi-line string stream logging without pipeline disruptions. It safely appends structural 
+# configuration variables into '/root/.zshrc'. The PROMPT definition dynamically layouts 
+# color configurations, active root variables, path depth, and logical exit status flags (✔️/✘).
 RUN cat >> /root/.zshrc <<'EOF'
 PROMPT='%F{cyan}[Rafael-Patin]%f %F{yellow}%1~%f %(?.%F{green}✔️.%F{red}✘)%f %# '
 EOF
