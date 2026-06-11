@@ -133,18 +133,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # === Human-Readable HTTP Evaluation Interface ===
     httpie \
 
- # --- Después de instalar, activamos el idioma español ---
- # sed busca "# es_ES.UTF-8" en /etc/locale.gen y le quita el "#" para
- # activar esa línea. Luego locale-gen compila los archivos de idioma.
- && sed -i 's/# es_ES.UTF-8/es_ES.UTF-8/' /etc/locale.gen \
- && locale-gen \
- \
- # --- Limpieza final: reducir el tamaño de la imagen ---
- # apt deja archivos de caché que ya no necesitamos después de instalar.
- # Borrarlos aquí (en el mismo RUN) hace la capa final más pequeña.
- # Si los borráramos en otro RUN, seguirían ocupando en la capa anterior.
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
+# --- Block f: Spanish Locale Generation ---
+    # [BHB Ch. 2] Using 'sed -i' invokes the stream editor to systematically perform an 
+    # in-place regex replacement inside '/etc/locale.gen'. It removes the comment prefix ('#') 
+    # from the Spanish localization string. Subsequently, 'locale-gen' compiles the active 
+    # binary definitions to properly support Spanish data characters inside the file system.
+    && sed -i 's/# es_ES.UTF-8 UTF-8/es_ES.UTF-8 UTF-8/' /etc/locale.gen && locale-gen \
+    \
+    # --- Block g: Image Layer Cache Cleanup Optimization ---
+    # [BHB Ch. 3] 'apt-get clean' flushes local package downloads from the cache directory, 
+    # and 'rm -rf' recursively purges remote indexes under '/var/lib/apt/lists/*'. 
+    # Doing this within the exact same RUN instruction guarantees that temporary metadata 
+    # is never committed into the final image layer, dramatically stripping down final storage size.
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 
 # ----------------------------------------------------------------------------
