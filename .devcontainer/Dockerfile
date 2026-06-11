@@ -132,6 +132,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     \
     # === Human-Readable HTTP Evaluation Interface ===
     httpie \
+    \
 
 # --- Block f: Spanish Locale Generation ---
     # [BHB Ch. 2] Using 'sed -i' invokes the stream editor to systematically perform an 
