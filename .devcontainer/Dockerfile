@@ -1,53 +1,38 @@
 # ============================================================================
-#  Dockerfile — "receta" para construir la imagen del curso
+# Course Dockerfile - Environment Blueprint
 # ============================================================================
-#  Un Dockerfile es un archivo de texto con instrucciones paso a paso que
-#  Docker (o Codespaces) lee de arriba hacia abajo para fabricar una
-#  "imagen". Una imagen es como un molde congelado de un sistema Linux
-#  listo para usar; cada vez que abres el Codespace, se crea un
-#  "contenedor" a partir de ese molde.
+# [BHB Ch. 3] A Dockerfile contains declarative instructions that the Docker 
+# engine processes sequentially to build an isolated file system image.
+# A container is the active execution instance generated from this template.
 #
-#  Analogía: la imagen es el PLANO, el contenedor es la CASA construida
-#  con ese plano. Puedes construir muchas casas iguales a partir de un
-#  solo plano, y si destruyes una casa el plano sigue intacto.
-#
-#  Cada instrucción (FROM, ENV, RUN...) crea una "capa". Docker guarda
-#  esas capas en caché: si no cambias las primeras líneas, no las
-#  reconstruye y el siguiente build es casi instantáneo.
+# [BHB Ch. 3 - Layer Caching Principle] Every instruction (FROM, ENV, RUN) 
+# creates a distinct read-only layer. Docker caches these layers. Instruction 
+# order matters because modifying an early line invalidates the cache for all 
+# subsequent layers, forcing a slow rebuild. Placing static definitions at the 
+# top optimizes build performance.
 # ============================================================================
 
-
-# ----------------------------------------------------------------------------
-# FROM: imagen base sobre la que vamos a construir
-# ----------------------------------------------------------------------------
-# En lugar de partir de cero, partimos de la imagen oficial de Kali Linux
-# en su versión "rolling" (actualización continua, siempre al día).
-# Todo lo que instalemos más abajo se apila ENCIMA de esta base.
+# --- Block a & b: Base Image & Layering Logic ---
+# [BHB Ch. 3] We pull the official 'kali-rolling' distribution as our base image. 
+# This guarantees that our workspace inherits Kali Linux's specialized penetration 
+# testing repository trees and kernel utilities natively.
 FROM kalilinux/kali-rolling:latest
 
 
-# ----------------------------------------------------------------------------
-# ENV: variables de entorno permanentes dentro del contenedor
-# ----------------------------------------------------------------------------
-# Las variables de entorno son "ajustes globales" que cualquier programa
-# del sistema puede leer. Se escriben en MAYÚSCULAS por convención.
+# --- Block c: Global Environment Variables Configuration ---
+# [BHB Ch. 1 & Ch. 3] Declaring immutable environment variables exported to 
+# the system shell environment, modifying global execution behaviors:
+# 
+# DEBIAN_FRONTEND=noninteractive -> Forces the APT package manager to run without
+# user prompts or interactive dialogs, preventing build hangs in headless pipelines.
 #
-#   DEBIAN_FRONTEND=noninteractive
-#     Le dice al instalador de paquetes (apt) "no me hagas preguntas
-#     interactivas, asume respuestas por defecto". Sin esto, algunos
-#     paquetes pausarían el build esperando que pulsemos una tecla y se
-#     quedaría colgado para siempre (porque no hay nadie mirando).
+# LANG & LC_ALL=es_ES.UTF-8 -> Establishes the structural locale definitions.
+# UTF-8 encoding ensures standard parsing of multi-byte characters and symbols.
 #
-#   LANG / LC_ALL=es_ES.UTF-8
-#     Configuran idioma y codificación de caracteres. UTF-8 es lo que
-#     permite que acentos, ñ, €, emojis, etc. se muestren bien.
+# TERM=xterm-256color -> Informs terminal applications (like vim or htop) that the 
+# host shell interface supports full 256-color map rendering.
 #
-#   TERM=xterm-256color
-#     Le indica a los programas que la terminal admite 256 colores, para
-#     que vim, nvim, htop, etc. se vean con todos sus colores.
-#
-# La barra invertida "\" al final de cada línea significa "esto continúa
-# en la línea siguiente". Solo es para legibilidad.
+# The trailing backslash "\" functions as a shell line-continuation token.
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=es_ES.UTF-8 \
     LC_ALL=es_ES.UTF-8 \
