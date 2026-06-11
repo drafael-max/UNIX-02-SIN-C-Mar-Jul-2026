@@ -47,48 +47,36 @@ ENV DEBIAN_FRONTEND=noninteractive \
 RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
     | debconf-set-selections
 
-
-# ----------------------------------------------------------------------------
-# RUN: ejecutar comandos durante la construcción de la imagen
-# ----------------------------------------------------------------------------
-# Aquí instalamos TODO el software del curso en un solo RUN.
-#
-#   apt-get update          -> actualiza la lista de paquetes disponibles
-#   apt-get install         -> descarga e instala los paquetes listados
-#     -y                    -> responde "sí" automáticamente
-#     --no-install-recommends -> instala SOLO lo esencial (no los extras
-#                                sugeridos). Ahorra cientos de MB.
-#
-# ¿Por qué un solo RUN gigante y no 10 RUN pequeños?
-# Porque CADA RUN crea una capa nueva en la imagen. Menos capas = imagen
-# más pequeña, más rápida de construir y de descargar.
-#
-# El "&&" encadena comandos: ejecuta el siguiente SOLO SI el anterior
-# terminó bien. Si algo falla, el build se detiene con error (que es lo
-# que queremos: mejor un error claro que una imagen rota).
+    
+# --- Block e: Monolithic Multi-Package Provisioning Layer ---
+# [BHB Ch. 3] Executing a unified, single RUN block enforces a monolithic layer allocation strategy.
+# Splitting updates and installations across separate RUN commands leads to caching discrepancies 
+# and severely bloated image sizes. The operational symbols and flags perform the following roles:
+# '&&' -> [BHB Ch. 1] Logical AND conditional operator; executes the subsequent command only if the previous returns a 0 exit status.
+# '\'  -> Shell line-continuation token used strictly for clean code layout and legibility.
+# 'apt-get update' -> Synchronizes the local package indexing cache with the remote Kali Linux repository trees.
+# 'apt-get install' -> Fetches, extracts, and maps the binary executables and their structural dependencies.
+# '-y' -> Forces automatic affirmative input, bypassing interactive execution confirmations.
+# '--no-install-recommends' -> Suppresses non-essential recommended packages to optimize filesystem overhead.
 RUN apt-get update && apt-get install -y --no-install-recommends \
     \
-    # === Editores de texto y shells (intérpretes de comandos) ===
+    # === Core Shell Interfaces & Text Editors ===
     neovim \
     vim \
     zsh \
     bash-completion \
     \
-    # === Herramientas de 4ta generación ===
-    # Estas son las protagonistas de las Unidades 2, 3 y 4:
+    # === Text Stream Processors (4th Gen Utilities - BHB Ch. 2) ===
+    # Fundamental toolsets used for pipeline filtering, pattern matching, and file transformations.
     perl \
     make \
     gawk \
     sed \
     grep \
     \
-    # === Utilidades básicas de UNIX ===
-    # coreutils trae cat, ls, head, tail, sort, cut, tr, etc.
-    # findutils trae find y xargs.
-    # procps trae ps, top, kill (gestión de procesos).
-    # less = paginador para leer archivos largos.
-    # tree = muestra directorios como árbol.
-    # jq = procesa JSON desde la línea de comandos.
+    # === UNIX System Utilities & Data Structure Parsers ===
+    # coreutils houses core system binaries (like cat, cut, tr, head, and tail).
+    # jq operates as a specialized command-line processor for structural JSON data parsing.
     coreutils \
     findutils \
     procps \
@@ -96,15 +84,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tree \
     jq \
     \
-    # === Páginas de manual (comando `man`) ===
-    # La imagen base de Kali viene sin documentación para
-    # ahorrar espacio. La reinstalamos porque en el curso "man bash" o
-    # "man grep" es material de consulta obligada.
+    # === Built-in Documentation Architecture (BHB Ch. 1) ===
+    # Re-enabling manual pages omitted from the base cloud image to facilitate local command reference.
     man-db \
     manpages \
     manpages-posix \
     \
-    # === Red básica y utilidades de descarga ===
+    # === Network Transport, Transport Security & VCS ===
     curl \
     wget \
     git \
@@ -112,22 +98,21 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     locales \
     \
-    # === Linter (revisor automático de errores) para scripts Bash ===
+    # === Static Analysis Linting ===
+    # shellcheck performs automated static analysis on shell scripts to catch syntax faults.
     shellcheck \
     \
-    # === Reconocimiento y escaneo de red ===
-    # nmap = el escáner de puertos más famoso.
-    # masscan = escaneo masivo de rangos grandes de IPs.
+    # === Active Reconnaissance & Network Mapping ===
+    # nmap and masscan drive high-speed target profiling, service fingerprinting, and port discovery.
     nmap \
     masscan \
     \
-    # === Captura y análisis de paquetes de red ===
-    # tcpdump = capturador clásico por terminal.
-    # tshark = versión de terminal de Wireshark.
+    # === Packet Sniffing & Traffic Interception ===
+    # tcpdump and tshark capture raw network socket buffers directly from active network interfaces.
     tcpdump \
     tshark \
     \
-    # === Utilidades de red variadas ===
+    # === Socket Relays & Diagnostic Routing Tools ===
     netcat-traditional \
     socat \
     dnsutils \
@@ -138,19 +123,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     net-tools \
     iputils-ping \
     \
-    # === Anonimato: Tor y similares ===
-    # tor = cliente de la red Tor.
-    # torsocks = "envoltorio" que hace pasar cualquier comando por Tor.
-    # proxychains4 = encadena múltiples proxies.
-    # obfs4proxy = ofusca el tráfico de Tor para evadir bloqueos.
+    # === Routing Anonymization & Traffic Obfuscation ===
+    # tor routes operational streams across relays, while proxychains4 forces arbitrary socket calls through them.
     tor \
     torsocks \
     proxychains4 \
     obfs4proxy \
     \
-    # === Cliente HTTP más legible que curl para aprender ===
+    # === Human-Readable HTTP Evaluation Interface ===
     httpie \
-    \
+
  # --- Después de instalar, activamos el idioma español ---
  # sed busca "# es_ES.UTF-8" en /etc/locale.gen y le quita el "#" para
  # activar esa línea. Luego locale-gen compila los archivos de idioma.
