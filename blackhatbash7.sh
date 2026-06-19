@@ -28,6 +28,10 @@ head log.txt
 #Look for the lines that contain that IP address.
 grep "42.236.10.117" log.txt
 #From those lines, print column 7.
-| awk '{print $7}'
+log txt | awk '{print $7}'
 #Search for a specific IP address in the log and display the resource or route requested by that IP address.
 grep "42.236.10.117" log.txt | awk '{print $7}'
+
+sed 's/Mozilla/Godzilla/g' log.txt
+sed 's/Mozilla/Godzilla/g' log.txt > newlog.txt
+head newlog.txt
