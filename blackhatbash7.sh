@@ -35,3 +35,10 @@ grep "42.236.10.117" log.txt | awk '{print $7}'
 sed 's/Mozilla/Godzilla/g' log.txt
 sed 's/Mozilla/Godzilla/g' log.txt > newlog.txt
 head newlog.txt
+sed 's/ //g' log.txt
+sed '1d' log.txt
+sed '$d' log.txt
+sed '5,7d' log.txt
+sed -n '2,15p' log.txt
+sed -i '1d' log.txt
+head log.txt
